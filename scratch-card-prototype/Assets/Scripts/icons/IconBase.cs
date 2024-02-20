@@ -9,6 +9,7 @@ public class IconBase : MonoBehaviour
 {
     [Header("Feedbacks")]
     public bool playFeedbacks = true;
+    public GameObject feedbackPrefab;
     public List<AudioClip> feedbackSoundList;
     
     [Header("Icon")]
@@ -40,12 +41,12 @@ public class IconBase : MonoBehaviour
         ApplyEffect();
     }
 
-    protected void PlayFeedbackAnimation()
+    protected virtual void PlayFeedbackAnimation()
     {
         
     }
 
-    protected void ApplyEffect()
+    protected virtual void ApplyEffect()
     {
         
     }
