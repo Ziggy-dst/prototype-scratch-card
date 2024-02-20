@@ -14,7 +14,9 @@ using UnityEngine;
 
         [Header("Scratch Card")]
         private bool isOverScratchCard = false;
-
+        public Vector2 scratchCardCenter;
+        public Vector2 scratchCardSize;
+        
         private void Awake()
         {
             instance = this;
@@ -48,10 +50,16 @@ using UnityEngine;
             if (iconCollider != null) iconCollider.GetComponent<IconBase>().OnReveal();
         }
 
+        private bool DetectHover()
+        {
+
+            return false;
+        }
+
         private void OnDrawGizmosSelected()
         {
             Gizmos.DrawWireSphere(transform.position, scratchRadius);
-            // Gizmos.DrawWireCube();
+            Gizmos.DrawWireCube(scratchCardCenter,scratchCardSize);
         }
 
         public void ChangeCursor(Sprite cursorSprite)

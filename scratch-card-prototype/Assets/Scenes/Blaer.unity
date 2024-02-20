@@ -383,7 +383,7 @@ PrefabInstance:
       objectReference: {fileID: 2068216543}
     - target: {fileID: 11486244, guid: bfd21db4576fb4dac871b93fdc37924b, type: 3}
       propertyPath: brushSize
-      value: 1.5
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 11486244, guid: bfd21db4576fb4dac871b93fdc37924b, type: 3}
       propertyPath: RenderType
@@ -448,7 +448,7 @@ MonoBehaviour:
   scratchCursor: {fileID: 21300000, guid: 5d2d91915dd021842bbd028b18fab77b, type: 3}
   scratchRadius: 0.2
   scratchCardCenter: {x: 0, y: 0}
-  scratchCardWidth: {x: 0, y: 0}
+  scratchCardSize: {x: 7.12, y: 10}
 --- !u!4 &714478560
 Transform:
   m_ObjectHideFlags: 0
