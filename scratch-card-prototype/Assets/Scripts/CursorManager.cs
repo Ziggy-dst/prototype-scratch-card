@@ -14,8 +14,6 @@ using UnityEngine;
 
         [Header("Scratch Card")]
         private bool isOverScratchCard = false;
-        public Vector2 scratchCardCenter;
-        public Vector2 scratchCardWidth;
 
         private void Awake()
         {
@@ -45,16 +43,15 @@ using UnityEngine;
 
         private void DetectScratch()
         {
-            Collider2D iconCollider = Physics2D.OverlapCircle(Camera.main.ScreenToWorldPoint(Input.mousePosition), scratchRadius, LayerMask.NameToLayer("Icon"));
+            Collider2D iconCollider = Physics2D.OverlapCircle(transform.position, scratchRadius, LayerMask.GetMask("Icon"));
             print(iconCollider);
             if (iconCollider != null) iconCollider.GetComponent<IconBase>().OnReveal();
         }
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.DrawWireSphere(Camera.main.ScreenToWorldPoint(Input.mousePosition), scratchRadius);
-            Gizmos.DrawWireCube();
-            Gizmos.draw
+            Gizmos.DrawWireSphere(transform.position, scratchRadius);
+            // Gizmos.DrawWireCube();
         }
 
         public void ChangeCursor(Sprite cursorSprite)
