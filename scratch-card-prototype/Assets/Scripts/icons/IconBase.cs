@@ -14,10 +14,11 @@ public class IconBase : MonoBehaviour
     
     [Header("Icon")]
     public bool fullScratchToReveal = false;
+    private bool isRevealed = false;
     
-    void Start()
+    protected virtual void Start()
     {
-        
+        isRevealed = false;
     }
     
     void Update()
@@ -27,6 +28,8 @@ public class IconBase : MonoBehaviour
 
     protected void OnReveal()
     {
+        if (isRevealed) return;
+        
         //TODO:automatic scratch animation
         
         if (playFeedbacks)
@@ -39,6 +42,7 @@ public class IconBase : MonoBehaviour
         }
         
         ApplyEffect();
+        isRevealed = true;
     }
 
     protected virtual void PlayFeedbackAnimation()
