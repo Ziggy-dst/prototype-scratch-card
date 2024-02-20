@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Collider2D))]
 public class IconBase : MonoBehaviour
 {
     [Header("Feedbacks")]
@@ -14,7 +15,7 @@ public class IconBase : MonoBehaviour
     
     [Header("Icon")]
     public bool fullScratchToReveal = false;
-    private bool isRevealed = false;
+    [SerializeField] private bool isRevealed = false;
     
     protected virtual void Start()
     {
@@ -26,7 +27,7 @@ public class IconBase : MonoBehaviour
         
     }
 
-    protected void OnReveal()
+    public void OnReveal()
     {
         if (isRevealed) return;
         
