@@ -16,10 +16,13 @@ public class IconBase : MonoBehaviour
     [Header("Icon")]
     public bool fullScratchToReveal = false;
     [SerializeField] private bool isRevealed = false;
+
+    protected SpriteRenderer spriteRenderer;
     
     protected virtual void Start()
     {
         isRevealed = false;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
     void Update()
