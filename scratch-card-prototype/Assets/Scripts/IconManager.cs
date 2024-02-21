@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class IconManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int totalGold = 0;
+    public int totalCurse = 0;
+    public int totalTreasure = 0;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         

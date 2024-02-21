@@ -577,6 +577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1608561189}
+  - component: {fileID: 1608561190}
   m_Layer: 0
   m_Name: Icon Manager
   m_TagString: Untagged
@@ -602,6 +603,18 @@ Transform:
   - {fileID: 1211868092}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1608561190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608561188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e62f47d53d4c8044b8b2d7760f7d65b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1623934992
 GameObject:
   m_ObjectHideFlags: 0
