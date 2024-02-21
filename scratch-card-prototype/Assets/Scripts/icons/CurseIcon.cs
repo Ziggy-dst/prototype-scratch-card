@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CurseIcon : IconBase
 {
-    public float quantityOfCurse = 1;
+    public int quantityOfCurse = 1;
     
 
     void Start()
@@ -25,7 +25,7 @@ public class CurseIcon : IconBase
         TextMeshPro feedbackText = feedback.GetComponentInChildren<TextMeshPro>();
         Sequence feedbackSequence = DOTween.Sequence();
         
-        feedbackText.text = "+ " + quantityOfCurse;
+        feedbackText.text = "+ " + quantityOfCurse + " Curse";
         
         feedbackSequence
             .Append(feedbackText.transform.DOScale(Vector3.zero, 0))
@@ -38,6 +38,6 @@ public class CurseIcon : IconBase
 
     protected override void ApplyEffect()
     {
-        
+        GameManager.Instance.OnCursed(quantityOfCurse);
     }
 }

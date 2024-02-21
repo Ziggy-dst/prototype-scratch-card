@@ -32,10 +32,14 @@ using UnityEngine;
             Cursor.visible = false;
             Vector2 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             cursorRenderer.transform.position = cursorPosition;
+            isOverScratchCard = DetectHover();
 
-            if (Input.GetMouseButtonDown(0)) ChangeCursor(scratchCursor);
-            if (Input.GetMouseButtonUp(0)) ResumeCursor();
-            
+            if (isOverScratchCard)
+            {
+                if (Input.GetMouseButton(0)) ChangeCursor(scratchCursor);
+                if (Input.GetMouseButtonUp(0)) ResumeCursor();
+            }
+            else ResumeCursor();
         }
 
         private void FixedUpdate()
@@ -46,20 +50,29 @@ using UnityEngine;
         private void DetectScratch()
         {
             Collider2D iconCollider = Physics2D.OverlapCircle(transform.position, scratchRadius, LayerMask.GetMask("Icon"));
-            print(iconCollider);
-            if (iconCollider != null) iconCollider.GetComponent<IconBase>().OnReveal();
+            if (iconCollider != null)
+            {
+                IconBase iconScript = iconCollider.GetComponent<IconBase>();
+                if (iconScript.fullScratchToReveal)
+                {
+                    if((iconCollider.transform.position - transform.position).magnitude <= 0.15f) iconScript.OnReveal();
+                    print((iconCollider.transform.position - transform.position).magnitude);
+                }   
+                else iconScript.OnReveal();
+            }
         }
 
         private bool DetectHover()
         {
-
-            return false;
+            if (Mathf.Abs(transform.position.x - scratchCardCenter.x) <= scratchCardSize.x / 2 &&
+                Mathf.Abs(transform.position.y - scratchCardCenter.y) <= scratchCardSize.y / 2) return true;
+            else return false;
         }
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.DrawWireSphere(transform.position, scratchRadius);
-            Gizmos.DrawWireCube(scratchCardCenter,scratchCardSize);
+            Gizmos.DrawWireSphere(transform.position, scratchRadius); //Draw Finger Tip Overlap Circle
+            Gizmos.DrawWireCube(scratchCardCenter,scratchCardSize); //Draw Scratch Card Wireframe
         }
 
         public void ChangeCursor(Sprite cursorSprite)

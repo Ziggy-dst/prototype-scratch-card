@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GoldIcon : IconBase
 {
-    public float quantityOfGold = 1;
+    public int quantityOfGold = 1;
     
 
     void Start()
@@ -38,6 +38,6 @@ public class GoldIcon : IconBase
 
     protected override void ApplyEffect()
     {
-        
+        GameManager.Instance.OnGoldObtained(quantityOfGold);
     }
 }
