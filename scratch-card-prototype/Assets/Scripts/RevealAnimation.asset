@@ -13,17 +13,14 @@ MonoBehaviour:
   m_Name: RevealAnimation
   m_EditorClassIdentifier: 
   Scratches:
-  - rid: 1831230490714832896
+  - rid: 1831230490714832897
   ScratchSpace: 0
   references:
     version: 2
     RefIds:
-    - rid: 1831230490714832896
-      type: {class: LineScratch, ns: ScratchCardAsset.Animation, asm: Assembly-CSharp}
+    - rid: 1831230490714832897
+      type: {class: BaseScratch, ns: ScratchCardAsset.Animation, asm: Assembly-CSharp}
       data:
-        Position: {x: 0, y: 0}
-        BrushScale: 0
-        Time: 0
-        PositionEnd: {x: 0, y: 0}
-        BrushScaleEnd: 1
-        TimeEnd: 1
+        Position: {x: 0.671184, y: 0.8068783}
+        BrushScale: 2
+        Time: 0.5
