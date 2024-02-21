@@ -35,12 +35,12 @@ public class UIManager : MonoBehaviour
 
     public void ChangeGoldCountUI(int newValue)
     {
-        treasureText.text = $"Treasure Count: {newValue}";
+        goldText.text = $"Gold Count: {newValue}";
     }
 
     public void ChangeCurseLevelUI(int newValue)
     {
-        treasureText.text = $"Curse Level: {newValue}";
+        curseText.text = $"Curse Level: {newValue}";
     }
 
     public void ChangeBuyCardButtonStates(bool ifInteractable)

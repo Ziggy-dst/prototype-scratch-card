@@ -53,11 +53,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        InitializeGame();
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -118,6 +113,8 @@ public class GameManager : MonoBehaviour
     public void OnGoldObtained(int count)
     {
         CurrentGoldCount += count;
+        
+        UIManager.ChangeGoldCountUI(CurrentGoldCount);
 
         // check if the button should be greyed out
         if (CurrentGoldCount >= currentScratchCardPrice)
@@ -130,10 +127,10 @@ public class GameManager : MonoBehaviour
     /// <param name="count"></param>
     public void OnTreasureObtained(int count)
     {
-        CurrentGoldCount += count;
+        CurrentTreasureCount += count;
 
         // change the score on UI
-        UIManager.ChangeGoldCountUI(CurrentGoldCount);
+        UIManager.ChangeTreasureCountUI(CurrentTreasureCount);
     }
 
     /// <summary>
@@ -143,6 +140,7 @@ public class GameManager : MonoBehaviour
     public void OnCursed(int count)
     {
         currentCurseLevel += count;
+        UIManager.ChangeCurseLevelUI(currentCurseLevel);
         if (currentCurseLevel >= maxCurseLevel)
         {
             OnGameEnds();
