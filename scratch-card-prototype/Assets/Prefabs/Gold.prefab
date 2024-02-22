@@ -137,7 +137,8 @@ MonoBehaviour:
   feedbackPrefab: {fileID: 7135144563803257925, guid: f37ae6cb70873214fbbc3e8a7c79b31a, type: 3}
   particleList:
   - {fileID: 459009757199401676, guid: 1f03a286278a84187b73f158614ddfb1, type: 3}
-  feedbackSoundList: []
+  feedbackSoundList:
+  - {fileID: 8300000, guid: 325b2037a61b9467cb72b0434cc86673, type: 3}
   isAutoRevealed: 1
   autoRevealPressure: 3
   fullScratchToReveal: 0
