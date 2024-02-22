@@ -86,12 +86,12 @@ public class GameManager : MonoBehaviour
         // print(currentScratchCard);
 
         // initialize UI
-        UIManager.InitializeUIElements(CurrentTreasureCount, CurrentGoldCount, currentCurseLevel);
+        UIManager.InitializeUIElements(CurrentTreasureCount, CurrentGoldCount, currentCurseLevel, nextScratchCardPrice);
 
-        if (scratchCards.Count <= 1) UIManager.ChangeBuyCardButtonStates(false);
+        if (scratchCards.Count <= 1) UIManager.ChangeBuyCardButtonStates(false, nextScratchCardPrice);
         else
         {
-            if (CurrentGoldCount < nextScratchCardPrice) UIManager.ChangeBuyCardButtonStates(false);
+            if (CurrentGoldCount < nextScratchCardPrice) UIManager.ChangeBuyCardButtonStates(false, nextScratchCardPrice);
         }
     }
 
@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
 
         // check if the button should be greyed out
         if (CurrentGoldCount >= nextScratchCardPrice)
-            UIManager.ChangeBuyCardButtonStates(true);
+            UIManager.ChangeBuyCardButtonStates(true, nextScratchCardPrice);
     }
 
     /// <summary>
@@ -194,7 +194,7 @@ public class GameManager : MonoBehaviour
 
         // if this is the last card
         if (numOfScratchCardBought == scratchCards.Count - 1)
-            UIManager.ChangeBuyCardButtonStates(false);
+            UIManager.ChangeBuyCardButtonStates(false, nextScratchCardPrice);
 
         // reset bool
         allGoldRevealed = false;
@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
         if (currentCurseLevel > 0) RemoveCurse(curseToRemoveEachBuy);
 
         // check if the button should be greyed out (if have enough money to buy a new card)
-        if (CurrentGoldCount < nextScratchCardPrice) UIManager.ChangeBuyCardButtonStates(false);
+        if (CurrentGoldCount < nextScratchCardPrice) UIManager.ChangeBuyCardButtonStates(false, nextScratchCardPrice);
 
         // show new scratch card, destroy the old one
         Destroy(currentScratchCard);

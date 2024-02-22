@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text treasureText;
     public TMP_Text goldText;
     public TMP_Text curseText;
+    public TMP_Text buttonText;
 
     // interactable UIs
     public Button buyCardButton;
@@ -26,11 +27,12 @@ public class UIManager : MonoBehaviour
     public Action onUIShown;
     public Action onUIHidden;
 
-    public void InitializeUIElements(int treasureCount, int goldCount, int curseCount)
+    public void InitializeUIElements(int treasureCount, int goldCount, int curseCount, int nextCardPrice)
     {
         treasureText.text = $"Treasure Count: {treasureCount}";
         goldText.text = $"Gold Count: {goldCount}";
         curseText.text = $"Curse Count: {curseCount}";
+        buttonText.text = $"Next Card: <color=yellow>{nextCardPrice}</color>";
 
         buyCardButton.interactable = true;
 
@@ -54,8 +56,9 @@ public class UIManager : MonoBehaviour
         curseText.text = $"Curse Level: {newValue}";
     }
 
-    public void ChangeBuyCardButtonStates(bool ifInteractable)
+    public void ChangeBuyCardButtonStates(bool ifInteractable, int newPrice)
     {
+        buttonText.text = $"Next Card: <color=yellow>{newPrice}</color>";
         buyCardButton.interactable = ifInteractable;
     }
 
