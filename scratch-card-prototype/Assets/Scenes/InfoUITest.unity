@@ -636,6 +636,7 @@ MonoBehaviour:
   failProgressThreshold: 0.9
   scratchCardPrices: 07000000000000000000000000000000
   scratchCardSpawnPosition: {x: 0, y: 0}
+  curseToRemoveEachBuy: 1
   defaultCurseLevel: 0
   defaultGoldCount: 0
   defaultTreasureCount: 0
@@ -841,6 +842,7 @@ MonoBehaviour:
   treasureText: {fileID: 1137648468}
   goldText: {fileID: 840928452}
   curseText: {fileID: 748965845}
+  buttonText: {fileID: 421585060}
   buyCardButton: {fileID: 963617719}
   endingPanel: {fileID: 1725103727}
   infoPanel: {fileID: 349126371}
