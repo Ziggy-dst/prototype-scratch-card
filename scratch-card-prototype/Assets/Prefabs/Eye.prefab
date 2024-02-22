@@ -75,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 276b40ef3c0447642b915a0d83b8b773, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: 2ab24066cd1e2684d8326cad2f97edaf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.000000014901161, y: -0.052312493}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.39
 --- !u!114 &4222537278157902539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   feedbackSoundList: []
   fullScratchToReveal: 1
   isRevealed: 0
-  eyeOpenSprite: {fileID: 21300000, guid: bc914fc479ce8af4c858d6c51883825c, type: 3}
+  eyeOpenSprite: {fileID: 21300000, guid: f1e0d49aa8055fd4a801991b84d4f847, type: 3}
 --- !u!114 &-2750848746994295633
 MonoBehaviour:
   m_ObjectHideFlags: 0

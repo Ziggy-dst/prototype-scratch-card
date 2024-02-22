@@ -83,4 +83,9 @@ public class UIManager : MonoBehaviour
     {
         infoPanel.SetActive(false);
     }
+
+    public void HideAnswerPannel()
+    {
+        answerPanel.SetActive(false);
+    }
 }

@@ -23,6 +23,13 @@ public class GoldIcon : IconBase
             .Insert(1, feedbackText.DOFade(0, 1f))
             .OnComplete((() => { Destroy(feedback); }));
         feedbackSequence.Play();
+
+        if (particleList.Count > 0)
+        {  
+            print("particle played");
+            GameObject particle = Instantiate(particleList[Random.Range(0, particleList.Count)],transform.position,Quaternion.identity);
+            particle.GetComponent<ParticleSystem>().Play();
+        }
     }
 
     protected override void ApplyEffect()

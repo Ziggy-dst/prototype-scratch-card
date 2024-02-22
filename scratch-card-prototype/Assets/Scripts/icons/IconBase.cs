@@ -16,6 +16,7 @@ public class IconBase : MonoBehaviour
     [Header("Feedbacks")]
     public bool playFeedbacks = true;
     public GameObject feedbackPrefab;
+    public List<GameObject> particleList;
     public List<AudioClip> feedbackSoundList;
     
     [Header("Icon")]
