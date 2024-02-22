@@ -8,6 +8,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class IconBase : MonoBehaviour
 {
+    public IconRevealManager iconRevealManager;
+
     [Header("Feedbacks")]
     public bool playFeedbacks = true;
     public GameObject feedbackPrefab;
@@ -18,23 +20,19 @@ public class IconBase : MonoBehaviour
     [SerializeField] private bool isRevealed = false;
 
     protected SpriteRenderer spriteRenderer;
-    
+
     protected virtual void Start()
     {
         isRevealed = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-    
-    void Update()
-    {
-        
     }
 
     public void OnReveal()
     {
         if (isRevealed) return;
         
-        //TODO:automatic scratch animation
+        // automatic scratch animation
+        iconRevealManager.ConvertToScratchCardPosition(gameObject);
         
         if (playFeedbacks)
         {
