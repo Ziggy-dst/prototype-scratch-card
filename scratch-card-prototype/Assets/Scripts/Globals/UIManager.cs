@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,12 @@ public class UIManager : MonoBehaviour
 
     // panels
     public GameObject endingPanel;
+    public GameObject infoPanel;
+    public GameObject answerPanel;
+    
+    //actions
+    public Action showCurse;
+    public Action showGold;
 
     public void InitializeUIElements(int treasureCount, int goldCount, int curseCount)
     {
@@ -26,6 +33,8 @@ public class UIManager : MonoBehaviour
         buyCardButton.interactable = true;
 
         endingPanel.SetActive(false);
+        infoPanel.SetActive(false);
+        answerPanel.SetActive(false);
     }
 
     public void ChangeTreasureCountUI(int newValue)
@@ -51,5 +60,27 @@ public class UIManager : MonoBehaviour
     public void ShowEndingPanel()
     {
         endingPanel.SetActive(true);
+    }
+
+    public void ShowInfoPanel()
+    {
+        infoPanel.SetActive(true);
+    }
+
+    public void ShowCurse()
+    {
+        answerPanel.SetActive(true);
+        showCurse?.Invoke();
+    }
+    
+    public void ShowGold()
+    {
+        answerPanel.SetActive(true);
+        showGold?.Invoke();
+    }
+
+    public void HideInfoPanel()
+    {
+        infoPanel.SetActive(false);
     }
 }

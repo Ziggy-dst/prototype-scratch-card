@@ -20,6 +20,6 @@ public class EyeIcon : IconBase
 
     protected override void ApplyEffect()
     {
-        //TODO:Icon Manager to tell the number; A UI to let choose type
+        GameManager.Instance.UIManager.ShowInfoPanel();
     }
 }
