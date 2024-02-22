@@ -70,7 +70,7 @@ using UnityEngine;
                 if (iconScript.fullScratchToReveal)
                 {
                     if((iconCollider.transform.position - transform.position).magnitude <= 0.15f) iconScript.OnReveal();
-                    print((iconCollider.transform.position - transform.position).magnitude);
+                    // print((iconCollider.transform.position - transform.position).magnitude);
                 }   
                 else iconScript.OnReveal();
             }
