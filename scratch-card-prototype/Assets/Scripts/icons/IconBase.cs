@@ -15,7 +15,7 @@ public class IconBase : MonoBehaviour
     
     [Header("Icon")]
     public bool fullScratchToReveal = false;
-    [SerializeField] private bool isRevealed = false;
+    [HideInInspector] public bool isRevealed = false;
 
     protected SpriteRenderer spriteRenderer;
     
