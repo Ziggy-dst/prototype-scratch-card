@@ -156,7 +156,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playFeedbacks: 0
   feedbackPrefab: {fileID: 0}
+  particleList: []
   feedbackSoundList: []
+  isAutoRevealed: 0
+  autoRevealPressure: 3
   fullScratchToReveal: 0
   isRevealed: 0
 --- !u!58 &141476471
@@ -338,7 +341,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playFeedbacks: 0
   feedbackPrefab: {fileID: 0}
+  particleList: []
   feedbackSoundList: []
+  isAutoRevealed: 0
+  autoRevealPressure: 3
   fullScratchToReveal: 0
   isRevealed: 0
 --- !u!58 &306535788
@@ -545,7 +551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 137284, guid: bfd21db4576fb4dac871b93fdc37924b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 178426, guid: bfd21db4576fb4dac871b93fdc37924b, type: 3}
       propertyPath: m_IsActive
@@ -842,8 +848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c990767c26bcdae44a15cd5c080ee7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCursor: {fileID: 21300000, guid: 88e8a513e37b0a446a2ddaefa9121075, type: 3}
-  scratchCursor: {fileID: 21300000, guid: 5d2d91915dd021842bbd028b18fab77b, type: 3}
+  idleCursorList: []
+  scratchCursorList: []
   scratchRadius: 0.2
   scratchCardCenter: {x: 0, y: 0}
   scratchCardSize: {x: 7.12, y: 10}
@@ -947,7 +953,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playFeedbacks: 0
   feedbackPrefab: {fileID: 0}
+  particleList: []
   feedbackSoundList: []
+  isAutoRevealed: 0
+  autoRevealPressure: 3
   fullScratchToReveal: 0
   isRevealed: 0
 --- !u!58 &792403205
@@ -1253,7 +1262,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playFeedbacks: 0
   feedbackPrefab: {fileID: 0}
+  particleList: []
   feedbackSoundList: []
+  isAutoRevealed: 0
+  autoRevealPressure: 3
   fullScratchToReveal: 0
   isRevealed: 0
 --- !u!58 &1137331648
@@ -1391,7 +1403,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playFeedbacks: 0
   feedbackPrefab: {fileID: 0}
+  particleList: []
   feedbackSoundList: []
+  isAutoRevealed: 0
+  autoRevealPressure: 3
   fullScratchToReveal: 0
   isRevealed: 0
 --- !u!58 &1287381113
@@ -1834,7 +1849,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playFeedbacks: 0
   feedbackPrefab: {fileID: 0}
+  particleList: []
   feedbackSoundList: []
+  isAutoRevealed: 0
+  autoRevealPressure: 3
   fullScratchToReveal: 0
   isRevealed: 0
 --- !u!58 &1700890562
@@ -1972,7 +1990,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playFeedbacks: 0
   feedbackPrefab: {fileID: 0}
+  particleList: []
   feedbackSoundList: []
+  isAutoRevealed: 0
+  autoRevealPressure: 3
   fullScratchToReveal: 0
   isRevealed: 0
 --- !u!58 &1718356894
@@ -2110,7 +2131,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playFeedbacks: 0
   feedbackPrefab: {fileID: 0}
+  particleList: []
   feedbackSoundList: []
+  isAutoRevealed: 0
+  autoRevealPressure: 3
   fullScratchToReveal: 0
   isRevealed: 0
 --- !u!58 &1968185769
@@ -2248,7 +2272,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playFeedbacks: 0
   feedbackPrefab: {fileID: 0}
+  particleList: []
   feedbackSoundList: []
+  isAutoRevealed: 0
+  autoRevealPressure: 3
   fullScratchToReveal: 0
   isRevealed: 0
 --- !u!58 &1992976696
