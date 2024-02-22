@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
+using ScratchCardAsset;
 using ScratchCardAsset.Animation;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,7 @@ using UnityEngine;
 public class IconBase : MonoBehaviour
 {
     private IconRevealManager iconRevealManager;
+    private ScratchCardManager cardManager;
 
     [Header("Feedbacks")]
     public bool playFeedbacks = true;
@@ -21,14 +23,17 @@ public class IconBase : MonoBehaviour
     [HideInInspector] public bool isRevealed = false;
 
     protected SpriteRenderer spriteRenderer;
-    private ScratchAnimator scratchAnimator;
+    protected SpriteRenderer cardSprite;
 
     protected virtual void Start()
     {
         isRevealed = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        iconRevealManager = transform.parent.parent.GetComponent<IconRevealManager>();
-        scratchAnimator = GetComponent<ScratchAnimator>();
+
+        Transform card = transform.parent.parent;
+        iconRevealManager = card.GetComponent<IconRevealManager>();
+        cardManager = card.parent.GetComponentInChildren<ScratchCardManager>();
+        cardSprite = card.GetComponent<SpriteRenderer>();
     }
 
     public void OnReveal()
@@ -36,9 +41,8 @@ public class IconBase : MonoBehaviour
         if (isRevealed) return;
         
         // automatic scratch animation
-        iconRevealManager.ConvertToScratchCardPosition(gameObject);
-        scratchAnimator.Play();
-        
+        cardManager.Card.ScratchHole(ConvertToScratchCardTexturePosition(), 2);
+
         if (playFeedbacks)
         {
             PlayFeedbackAnimation();
@@ -50,6 +54,20 @@ public class IconBase : MonoBehaviour
         
         ApplyEffect();
         isRevealed = true;
+    }
+
+    public Vector2 ConvertToScratchCardTexturePosition()
+    {
+        Vector3 scratchCardOrigin = new Vector2(cardSprite.transform.position.x - cardSprite.sprite.bounds.size.x / 2,
+            cardSprite.transform.position.y - cardSprite.sprite.bounds.size.y / 2);
+        Vector2 relativePos = transform.position - scratchCardOrigin;
+        Vector2 uvPosition = new Vector2(relativePos.x / cardSprite.sprite.bounds.size.x, relativePos.y / cardSprite.sprite.bounds.size.y);
+
+        Vector2 convertedPosition = new Vector2(Mathf.FloorToInt(uvPosition.x * cardSprite.sprite.texture.width),
+            Mathf.FloorToInt(uvPosition.y * cardSprite.sprite.texture.height));
+        // print(convertedPosition);
+
+        return convertedPosition;
     }
 
     protected virtual void PlayFeedbackAnimation()
