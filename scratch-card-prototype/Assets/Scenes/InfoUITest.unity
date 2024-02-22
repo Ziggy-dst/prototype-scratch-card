@@ -633,7 +633,7 @@ MonoBehaviour:
   - {fileID: 6457442494819985814, guid: 45094e6bbfe4e4f9eac58fced6790c5d, type: 3}
   - {fileID: 6457442494819985814, guid: dbcea8355554349f0a9b13ed481daa4e, type: 3}
   maxCurseLevel: 5
-  failProgressThreshold: 0.95
+  failProgressThreshold: 0.9
   scratchCardPrices: 07000000000000000000000000000000
   scratchCardSpawnPosition: {x: 0, y: 0}
   defaultCurseLevel: 0

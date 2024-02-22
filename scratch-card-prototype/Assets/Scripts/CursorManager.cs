@@ -44,6 +44,7 @@ using UnityEngine;
         void Update()
         {
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
             Vector2 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             cursorRenderer.transform.position = cursorPosition;
             isOverScratchCard = DetectHover();
