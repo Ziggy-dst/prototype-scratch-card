@@ -48,6 +48,8 @@ public class IconManager : MonoBehaviour
         revealedGold = GetNumberOfRevealedIcon(goldArray);
         revealedCurse = GetNumberOfRevealedIcon(curseArray);
         revealedTreasure = GetNumberOfRevealedIcon(treasureArray);
+
+        if (totalGold == revealedGold) GameManager.Instance.allGoldRevealed = true;
     }
 
     int GetNumberOfRevealedIcon(IconBase[] iconArray)

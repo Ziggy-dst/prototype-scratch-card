@@ -10,7 +10,6 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class IconBase : MonoBehaviour
 {
-    private IconRevealManager iconRevealManager;
     private ScratchCardManager cardManager;
 
     [Header("Feedbacks")]
@@ -34,7 +33,6 @@ public class IconBase : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         Transform card = transform.parent.parent;
-        iconRevealManager = card.GetComponent<IconRevealManager>();
         cardManager = card.parent.GetComponentInChildren<ScratchCardManager>();
         cardSprite = card.GetComponent<SpriteRenderer>();
     }
