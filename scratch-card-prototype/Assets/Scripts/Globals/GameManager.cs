@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public int defaultTreasureCount = 0;
 
     // dynamic values
-    private int currentCurseLevel;
+    public int currentCurseLevel { get; private set; }
     public int CurrentGoldCount { get; private set; }
     public int CurrentTreasureCount { get; private set; }
     [HideInInspector] public bool allGoldRevealed = false;

@@ -653,6 +653,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1623934995}
   - {fileID: 483047196}
   - {fileID: 256023394}
   - {fileID: 1608561189}
@@ -874,8 +875,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c990767c26bcdae44a15cd5c080ee7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCursor: {fileID: 21300000, guid: 88e8a513e37b0a446a2ddaefa9121075, type: 3}
-  scratchCursor: {fileID: 21300000, guid: 5d2d91915dd021842bbd028b18fab77b, type: 3}
+  idleCursorList:
+  - {fileID: 21300000, guid: 88e8a513e37b0a446a2ddaefa9121075, type: 3}
+  - {fileID: 21300000, guid: 4ffe5a25a4e02f64fa3bd9d8b2a0615b, type: 3}
+  - {fileID: 21300000, guid: 6a0f12422d3108a4a89a487ed0bce570, type: 3}
+  - {fileID: 21300000, guid: 695a12b996a99f34a950e0ce0b0afbb9, type: 3}
+  - {fileID: 21300000, guid: 6873a1c6bace96742bc474bc3d039cad, type: 3}
+  - {fileID: 0}
+  scratchCursorList:
+  - {fileID: 21300000, guid: 5d2d91915dd021842bbd028b18fab77b, type: 3}
+  - {fileID: 21300000, guid: 7eb507b9a83492446b09da8d35dd0de0, type: 3}
+  - {fileID: 21300000, guid: 6003813eb60fa864280a46ecaeeb23be, type: 3}
+  - {fileID: 21300000, guid: f1ee9b1b062983245a42987691939856, type: 3}
+  - {fileID: 21300000, guid: 5bb4e81ab2e1cee418b72e2d808098ed, type: 3}
+  - {fileID: 0}
   scratchRadius: 0.2
   scratchCardCenter: {x: 0, y: 0}
   scratchCardSize: {x: 8.24, y: 10.36}
@@ -1879,10 +1892,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1746023418}
   - {fileID: 963617718}
   - {fileID: 349126372}
   - {fileID: 824086329}
+  - {fileID: 1746023418}
   - {fileID: 1725103728}
   m_Father: {fileID: 483047196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1940,9 +1953,9 @@ Canvas:
   m_GameObject: {fileID: 1392330778}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 1623934994}
+  m_PlaneDistance: 10
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1952,7 +1965,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 49
   m_TargetDisplay: 0
 --- !u!1 &1416700851
 GameObject:
@@ -2357,12 +2370,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623934992}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 446127886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1623934996
 MonoBehaviour:
@@ -3058,125 +3071,10 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996277207}
   m_CullTransparentMesh: 1
---- !u!21 &2068216543
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: ScratchCard/Mask
-  m_Shader: {fileID: 4800000, guid: 091cc9a445340c04bbcfbc65c0bef43f, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 15391751a7e2e3f41b186dd4f7b4b66b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats: []
-    m_Colors:
-    - _Offset: {r: 0, g: 0, b: 1, a: 1}
-  m_BuildTextureStacks: []
---- !u!1001 &3665956381078263432
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 315142495758279047, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: SurfaceMaterial
-      value: 
-      objectReference: {fileID: 2068216543}
-    - target: {fileID: 4371897417881370202, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2068216543}
-    - target: {fileID: 4984865838273298811, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 1623934994}
-    - target: {fileID: 6457442494819985814, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_Name
-      value: ScratchCard
-      objectReference: {fileID: 0}
-    - target: {fileID: 6457442494819985814, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6586141517372062868, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2068216543}
-    - target: {fileID: 6858020118867165901, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858020118867165901, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858020118867165901, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858020118867165901, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858020118867165901, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858020118867165901, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858020118867165901, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858020118867165901, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858020118867165901, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858020118867165901, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 906db6192a2309f44b60919a77a00a9a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1623934995}
   - {fileID: 714478560}
   - {fileID: 446127886}
-  - {fileID: 3665956381078263432}
   - {fileID: 266981241}
