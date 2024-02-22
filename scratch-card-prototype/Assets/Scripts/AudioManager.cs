@@ -8,12 +8,12 @@ namespace Managers
 {
     public class AudioManager : MonoBehaviour
     {
-        public static AudioManager instance;
-
-        private void Awake()
-        {
-            instance = this;
-        }
+        // public static AudioManager instance;
+        //
+        // private void Awake()
+        // {
+        //     instance = this;
+        // }
 
         public void PlaySound(AudioClip audioClip)
         {

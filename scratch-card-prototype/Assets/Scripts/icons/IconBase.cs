@@ -56,7 +56,7 @@ public class IconBase : MonoBehaviour
             PlayFeedbackAnimation();
             if (feedbackSoundList.Count > 0)
             {
-                AudioManager.instance.PlaySound(feedbackSoundList[Random.Range(0, feedbackSoundList.Count)]);
+                GameManager.Instance.AudioManager.PlaySound(feedbackSoundList[Random.Range(0, feedbackSoundList.Count)]);
             }
         }
         

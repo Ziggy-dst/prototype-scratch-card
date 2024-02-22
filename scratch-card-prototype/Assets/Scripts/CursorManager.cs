@@ -52,9 +52,9 @@ using UnityEngine;
             if (isOverScratchCard && !isUIShown)
             {
                 if (Input.GetMouseButton(0)) ChangeCursor(scratchCursorList[GameManager.Instance.currentCurseLevel]);
-                if (Input.GetMouseButtonUp(0)) ChangeCursor(idleCursorList[GameManager.Instance.currentCurseLevel]);
+                else ChangeCursor(idleCursorList[GameManager.Instance.currentCurseLevel]);
             }
-            else if (Input.GetMouseButtonUp(0)) ChangeCursor(idleCursorList[GameManager.Instance.currentCurseLevel]);
+            else ChangeCursor(idleCursorList[GameManager.Instance.currentCurseLevel]);
         }
 
         private void FixedUpdate()

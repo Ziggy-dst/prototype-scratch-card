@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using ScratchCardAsset;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [HideInInspector] public UIManager UIManager;
+    [HideInInspector] public AudioManager AudioManager;
     private ScratchCardManager cardManager;
 
     public bool AllowPlayerInput { get; private set; }
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             UIManager = GetComponentInChildren<UIManager>();
+            AudioManager = GetComponentInChildren<AudioManager>();
         }
         else
         {
