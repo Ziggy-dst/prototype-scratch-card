@@ -188,6 +188,8 @@ public class GameManager : MonoBehaviour
         // reset bool
         allGoldRevealed = false;
 
+        numOfScratchCardBought++;
+
         // cost
         CurrentGoldCount -= nextScratchCardPrice;
         UIManager.ChangeGoldCountUI(CurrentGoldCount);
@@ -202,8 +204,6 @@ public class GameManager : MonoBehaviour
         Destroy(currentScratchCard);
         currentScratchCardAsset = scratchCards[numOfScratchCardBought];
         GenerateScratchCards(scratchCardSpawnPosition);
-
-        numOfScratchCardBought++;
 
         // check if the card runs out
         if (numOfScratchCardBought >= scratchCards.Count - 1) UIManager.ChangeBuyCardButtonStates(false, nextScratchCardPrice);
