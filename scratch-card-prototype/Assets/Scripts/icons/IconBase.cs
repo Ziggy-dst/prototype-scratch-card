@@ -40,6 +40,13 @@ public class IconBase : MonoBehaviour
     public void OnReveal()
     {
         if (isRevealed) return;
+        StartCoroutine(Reveal());
+        isRevealed = true;
+    }
+
+    IEnumerator Reveal()
+    {
+        yield return new WaitForSeconds(0.5f);
         
         // automatic scratch animation
         if(isAutoRevealed) cardManager.Card.ScratchHole(ConvertToScratchCardTexturePosition(), autoRevealPressure);
@@ -54,7 +61,6 @@ public class IconBase : MonoBehaviour
         }
         
         ApplyEffect();
-        isRevealed = true;
     }
 
     public Vector2 ConvertToScratchCardTexturePosition()
