@@ -8,8 +8,8 @@ using UnityEngine;
     {
         private SpriteRenderer cursorRenderer;
         // public static CursorManager instance;
-        public Sprite defaultCursor;
-        public Sprite scratchCursor;
+        public List<Sprite> idleCursorList;
+        public List<Sprite> scratchCursorList;
         public float scratchRadius = 1;
 
         [Header("Scratch Card")]
@@ -50,10 +50,10 @@ using UnityEngine;
 
             if (isOverScratchCard && !isUIShown)
             {
-                if (Input.GetMouseButton(0)) ChangeCursor(scratchCursor);
-                if (Input.GetMouseButtonUp(0)) ResumeCursor();
+                if (Input.GetMouseButton(0)) ChangeCursor(scratchCursorList[GameManager.Instance.currentCurseLevel]);
+                if (Input.GetMouseButtonUp(0)) ChangeCursor(idleCursorList[GameManager.Instance.currentCurseLevel]);
             }
-            else ResumeCursor();
+            else if (Input.GetMouseButtonUp(0)) ChangeCursor(idleCursorList[GameManager.Instance.currentCurseLevel]);
         }
 
         private void FixedUpdate()
@@ -92,11 +92,6 @@ using UnityEngine;
         public void ChangeCursor(Sprite cursorSprite)
         {
             cursorRenderer.sprite = cursorSprite;
-        }
-        
-        public void ResumeCursor()
-        {
-            cursorRenderer.sprite = defaultCursor;
         }
 
         public void LockCursor()
