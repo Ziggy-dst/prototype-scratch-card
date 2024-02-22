@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
         UIManager.ChangeGoldCountUI(CurrentGoldCount);
 
         // remove curse
-        RemoveCurse(curseToRemoveEachBuy);
+        if (currentCurseLevel > 0) RemoveCurse(curseToRemoveEachBuy);
 
         // check if the button should be greyed out (if have enough money to buy a new card)
         if (CurrentGoldCount < nextScratchCardPrice) UIManager.ChangeBuyCardButtonStates(false);
