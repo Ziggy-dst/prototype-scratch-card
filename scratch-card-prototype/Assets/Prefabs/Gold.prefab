@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2025096394406645522}
   - component: {fileID: 524008675781594038}
   - component: {fileID: 850895236917154305}
-  - component: {fileID: 5890014129844082856}
   m_Layer: 6
   m_Name: Gold
   m_TagString: Untagged
@@ -75,8 +74,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: d959cdce6752f104586ddbc5ac23a16f, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: bd6d1bcf85d657c4ab8621b6f2bca54c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,7 +120,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.248
+  m_Radius: 0.26
 --- !u!114 &850895236917154305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,22 +135,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playFeedbacks: 1
   feedbackPrefab: {fileID: 7135144563803257925, guid: f37ae6cb70873214fbbc3e8a7c79b31a, type: 3}
+  particleList:
+  - {fileID: 459009757199401676, guid: 1f03a286278a84187b73f158614ddfb1, type: 3}
   feedbackSoundList: []
+  isAutoRevealed: 1
+  autoRevealPressure: 3
   fullScratchToReveal: 0
   isRevealed: 0
   quantityOfGold: 1
---- !u!114 &5890014129844082856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5859166274144228573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 610813ebc1938435f8a1a92270a183ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScratchCard: {fileID: 0}
-  ScratchAnimation: {fileID: 0}
-  PlayOnStart: 1

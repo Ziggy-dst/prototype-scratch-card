@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2881899430818214618}
   - component: {fileID: 1024790666415956522}
   - component: {fileID: 3167185002849958268}
-  - component: {fileID: 6056396660821406651}
   m_Layer: 6
   m_Name: Treasure
   m_TagString: Untagged
@@ -75,8 +74,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 1d812e5da15609942834ff9f34b5dc62, type: 3}
+  m_SortingOrder: 11
+  m_Sprite: {fileID: 21300000, guid: 285c46721f4d6e54c86f2b511a638df3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,7 +118,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.03}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.26
 --- !u!114 &3167185002849958268
@@ -136,22 +135,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playFeedbacks: 1
   feedbackPrefab: {fileID: 6726016276109468921, guid: a5e8d7886eae2e84eb293580ba6feab4, type: 3}
+  particleList: []
   feedbackSoundList: []
+  isAutoRevealed: 1
+  autoRevealPressure: 3
   fullScratchToReveal: 0
   isRevealed: 0
   quantityOfTreasure: 1
---- !u!114 &6056396660821406651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140972967714861684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 610813ebc1938435f8a1a92270a183ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScratchCard: {fileID: 0}
-  ScratchAnimation: {fileID: 0}
-  PlayOnStart: 1

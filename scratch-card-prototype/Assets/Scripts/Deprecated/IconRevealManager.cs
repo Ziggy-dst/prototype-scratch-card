@@ -37,7 +37,7 @@ public class IconRevealManager : MonoBehaviour
 
             var scratch = new BaseScratch
             {
-                Position = icon.transform.position / imageSize,
+                Position = ConvertToScratchCardPosition(icon),
                 BrushScale = brushScale,
                 Time = time
             };
@@ -61,7 +61,7 @@ public class IconRevealManager : MonoBehaviour
     /// triggered when a icon is revealed, figure out the right reveal animation and play
     /// </summary>
     /// <param name="iconTransform"></param>
-    public void ConvertToScratchCardPosition(GameObject icon)
+    public Vector2 ConvertToScratchCardPosition(GameObject icon)
     {
         // card origin in world space
         Vector3 scratchCardOrigin = new Vector2(transform.position.x - cardSprite.sprite.bounds.size.x / 2,
@@ -76,9 +76,10 @@ public class IconRevealManager : MonoBehaviour
         // print("finalPos " + convertedPosition);
 
         // check index of the icon on the list
-        int iconIndex = CheckAnimationIndex(icon);
-        print(iconIndex);
-
-        scratchAnimation.Scratches[iconIndex].Position = convertedPosition;
+        // int iconIndex = CheckAnimationIndex(icon);
+        // print(iconIndex);
+        //
+        // scratchAnimation.Scratches[iconIndex].Position = convertedPosition;
+        return convertedPosition;
     }
 }

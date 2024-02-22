@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     private int currentCurseLevel;
     public int CurrentGoldCount { get; private set; }
     public int CurrentTreasureCount { get; private set; }
+    [HideInInspector] public bool allGoldRevealed = false;
 
     private int numOfScratchCardBought = 0;
     private int currentScratchCardPrice;
@@ -59,6 +60,8 @@ public class GameManager : MonoBehaviour
         {
             Restart();
         }
+
+        CheckIfPlayerCouldWin();
     }
 
     private void OnEnable()
@@ -99,6 +102,22 @@ public class GameManager : MonoBehaviour
         numOfScratchCardBought = 0;
         currentScratchCardPrice = scratchCardPrices[numOfScratchCardBought];
         currentScratchCardAsset = scratchCards[numOfScratchCardBought];
+    }
+
+    /// <summary>
+    /// end the game if the player could not win
+    /// </summary>
+    private void CheckIfPlayerCouldWin()
+    {
+        // check if the gold is enough
+        if (CurrentGoldCount < currentScratchCardPrice)
+        {
+            // check if all gold are revealed on this card
+            if (currentScratchCardAsset.GetComponent<EraseProgress>().GetProgress() >= failProgressThreshold && allGoldRevealed)
+            {
+                if (CurrentGoldCount < currentScratchCardPrice) OnGameEnds();
+            }
+        }
     }
 
     private void GenerateScratchCards(Vector2 spawnPosition)
@@ -152,17 +171,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void BuyScratchCard()
     {
-        // check if the gold is enough
-        if (CurrentGoldCount < currentScratchCardPrice)
-        {
-            // TODO: check if all gold are revealed on this card
-            if (currentScratchCardAsset.GetComponent<EraseProgress>().GetProgress() >= failProgressThreshold)
-            {
-                OnGameEnds();
-                return;
-            }
-        }
-
         // check if the card runs out
         if (numOfScratchCardBought < scratchCards.Count - 1)
         {
@@ -173,10 +181,13 @@ public class GameManager : MonoBehaviour
         if (numOfScratchCardBought == scratchCards.Count - 1)
             UIManager.ChangeBuyCardButtonStates(false);
 
+        // reset bool
+        allGoldRevealed = false;
+
         // cost
         CurrentGoldCount -= currentScratchCardPrice;
 
-        // check if the button should be greyed out
+        // check if the button should be greyed out (if have enough money to buy a new card)
         if (CurrentGoldCount < currentScratchCardPrice) UIManager.ChangeBuyCardButtonStates(false);
 
         // show new scratch card, destroy the old one

@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour
     //actions
     public Action showCurse;
     public Action showGold;
+    public Action onUIShown;
+    public Action onUIHidden;
 
     public void InitializeUIElements(int treasureCount, int goldCount, int curseCount)
     {
@@ -60,11 +62,13 @@ public class UIManager : MonoBehaviour
     public void ShowEndingPanel()
     {
         endingPanel.SetActive(true);
+        onUIShown?.Invoke();
     }
 
     public void ShowInfoPanel()
     {
         infoPanel.SetActive(true);
+        onUIShown?.Invoke();
     }
 
     public void ShowCurse()
@@ -82,5 +86,11 @@ public class UIManager : MonoBehaviour
     public void HideInfoPanel()
     {
         infoPanel.SetActive(false);
+    }
+
+    public void HideAnswerPannel()
+    {
+        answerPanel.SetActive(false);
+        onUIHidden?.Invoke();
     }
 }

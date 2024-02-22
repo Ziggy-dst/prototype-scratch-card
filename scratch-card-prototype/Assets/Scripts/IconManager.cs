@@ -48,6 +48,8 @@ public class IconManager : MonoBehaviour
         revealedGold = GetNumberOfRevealedIcon(goldArray);
         revealedCurse = GetNumberOfRevealedIcon(curseArray);
         revealedTreasure = GetNumberOfRevealedIcon(treasureArray);
+
+        if (totalGold == revealedGold) GameManager.Instance.allGoldRevealed = true;
     }
 
     int GetNumberOfRevealedIcon(IconBase[] iconArray)
@@ -74,33 +76,33 @@ public class IconManager : MonoBehaviour
 
     void ShowCurse()
     {
-        Image answerPanelImage = uiManager.answerPanel.GetComponent<Image>();
+        // Image answerPanelImage = uiManager.answerPanel.GetComponent<Image>();
         TextMeshProUGUI answerText = uiManager.answerPanel.GetComponentInChildren<TextMeshProUGUI>();
         answerText.text = "There are " + (totalCurse - revealedCurse) + " Unrevealed Curse Icon";
 
-        Sequence fadeAnswer = DOTween.Sequence();
-        fadeAnswer
-            .AppendInterval(1)
-            .Append(answerText.DOFade(0, 1f))
-            .Insert(1, answerPanelImage.DOFade(0, 1f))
-            .OnComplete((() => { answerPanelImage.gameObject.SetActive(false); }))
-            .Rewind();
-        fadeAnswer.Play();
+        // Sequence fadeAnswer = DOTween.Sequence();
+        // fadeAnswer
+        //     .AppendInterval(1)
+        //     .Append(answerText.DOFade(0, 1f))
+        //     .Insert(1, answerPanelImage.DOFade(0, 1f))
+        //     .OnComplete((() => { answerPanelImage.gameObject.SetActive(false); }))
+        //     .Rewind();
+        // fadeAnswer.Play();
     }
     
     void ShowGold()
     {
-        Image answerPanelImage = uiManager.answerPanel.GetComponent<Image>();
+        // Image answerPanelImage = uiManager.answerPanel.GetComponent<Image>();
         TextMeshProUGUI answerText = uiManager.answerPanel.GetComponentInChildren<TextMeshProUGUI>();
         answerText.text = "There are " + (totalGold - revealedGold) + " Unrevealed Gold Icon";
 
-        Sequence fadeAnswer = DOTween.Sequence();
-        fadeAnswer
-            .AppendInterval(1)
-            .Append(answerText.DOFade(0, 1f))
-            .Insert(1, answerPanelImage.DOFade(0, 1f))
-            .OnComplete((() => { answerPanelImage.gameObject.SetActive(false); }))
-            .Rewind();
-        fadeAnswer.Play();
+        // Sequence fadeAnswer = DOTween.Sequence();
+        // fadeAnswer
+        //     .AppendInterval(1)
+        //     .Append(answerText.DOFade(0, 1f))
+        //     .Insert(1, answerPanelImage.DOFade(0, 1f))
+        //     .OnComplete((() => { answerPanelImage.gameObject.SetActive(false); }))
+        //     .Rewind();
+        // fadeAnswer.Play();
     }
 }
