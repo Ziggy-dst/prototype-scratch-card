@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
     private void RemoveCurse(int amount)
     {
         currentCurseLevel -= amount;
-        UIManager.ChangeGoldCountUI(currentCurseLevel);
+        UIManager.ChangeCurseLevelUI(currentCurseLevel);
     }
 
     /// <summary>
