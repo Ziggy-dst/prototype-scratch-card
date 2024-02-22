@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [HideInInspector] public UIManager UIManager;
+    private ScratchCardManager cardManager;
 
     public bool AllowPlayerInput { get; private set; }
 
@@ -60,8 +61,6 @@ public class GameManager : MonoBehaviour
         {
             Restart();
         }
-
-        CheckIfPlayerCouldWin();
     }
 
     private void OnEnable()
@@ -111,14 +110,14 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// end the game if the player could not win
     /// </summary>
-    private void CheckIfPlayerCouldWin()
+    private void CheckIfPlayerCouldWin(float progress)
     {
         // check if the gold is enough
         if (CurrentGoldCount < nextScratchCardPrice)
         {
-            print(currentScratchCardAsset.GetComponentInChildren<EraseProgress>().GetProgress());
+            // print("progress " + progress);
             // check if all gold are revealed on this card
-            if (currentScratchCardAsset.GetComponentInChildren<EraseProgress>().GetProgress() >= failProgressThreshold && allGoldRevealed)
+            if (progress >= failProgressThreshold && allGoldRevealed)
             {
                 if (CurrentGoldCount < nextScratchCardPrice) OnGameEnds();
             }
@@ -127,7 +126,10 @@ public class GameManager : MonoBehaviour
 
     private void GenerateScratchCards(Vector2 spawnPosition)
     {
+        if (cardManager != null) cardManager.Progress.OnProgress -= CheckIfPlayerCouldWin;
         currentScratchCard = Instantiate(currentScratchCardAsset, spawnPosition, Quaternion.identity);
+        cardManager = currentScratchCard.GetComponent<ScratchCardManager>();
+        cardManager.Progress.OnProgress += CheckIfPlayerCouldWin;
     }
 
     /// <summary>
