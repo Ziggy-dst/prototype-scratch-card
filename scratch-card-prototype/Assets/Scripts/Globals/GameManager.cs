@@ -185,17 +185,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void BuyScratchCard()
     {
-        // check if the card runs out
-        if (numOfScratchCardBought < scratchCards.Count - 1)
-        {
-            numOfScratchCardBought++;
-        }
-        else return;
-
-        // if this is the last card
-        if (numOfScratchCardBought == scratchCards.Count - 1)
-            UIManager.ChangeBuyCardButtonStates(false);
-
         // reset bool
         allGoldRevealed = false;
 
@@ -214,8 +203,14 @@ public class GameManager : MonoBehaviour
         currentScratchCardAsset = scratchCards[numOfScratchCardBought];
         GenerateScratchCards(scratchCardSpawnPosition);
 
-        // change the price of next card
-        nextScratchCardPrice = scratchCardPrices[numOfScratchCardBought];
+        numOfScratchCardBought++;
+
+        // check if the card runs out
+        if (numOfScratchCardBought >= scratchCards.Count - 1) UIManager.ChangeBuyCardButtonStates(false);
+        else
+        {
+            nextScratchCardPrice = scratchCardPrices[numOfScratchCardBought];
+        }
     }
 
     private void OnGameEnds()
