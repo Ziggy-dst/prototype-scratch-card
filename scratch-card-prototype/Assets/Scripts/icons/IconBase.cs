@@ -18,6 +18,8 @@ public class IconBase : MonoBehaviour
     public GameObject feedbackPrefab;
     public List<GameObject> particleList;
     public List<AudioClip> feedbackSoundList;
+    public bool isAutoRevealed = false;
+    public float autoRevealPressure = 3;
     
     [Header("Icon")]
     public bool fullScratchToReveal = false;
@@ -42,7 +44,7 @@ public class IconBase : MonoBehaviour
         if (isRevealed) return;
         
         // automatic scratch animation
-        cardManager.Card.ScratchHole(ConvertToScratchCardTexturePosition(), 2);
+        if(isAutoRevealed) cardManager.Card.ScratchHole(ConvertToScratchCardTexturePosition(), autoRevealPressure);
 
         if (playFeedbacks)
         {

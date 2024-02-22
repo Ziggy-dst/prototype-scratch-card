@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2025096394406645522}
   - component: {fileID: 524008675781594038}
   - component: {fileID: 850895236917154305}
-  - component: {fileID: 5890014129844082856}
   m_Layer: 6
   m_Name: Gold
   m_TagString: Untagged
@@ -139,21 +138,8 @@ MonoBehaviour:
   particleList:
   - {fileID: 459009757199401676, guid: 1f03a286278a84187b73f158614ddfb1, type: 3}
   feedbackSoundList: []
+  isAutoRevealed: 1
+  autoRevealPressure: 3
   fullScratchToReveal: 0
   isRevealed: 0
   quantityOfGold: 1
---- !u!114 &5890014129844082856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5859166274144228573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 610813ebc1938435f8a1a92270a183ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScratchCard: {fileID: 0}
-  ScratchAnimation: {fileID: 0}
-  PlayOnStart: 1
