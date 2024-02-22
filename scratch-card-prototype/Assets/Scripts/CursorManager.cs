@@ -7,24 +7,38 @@ using UnityEngine;
     public class CursorManager : MonoBehaviour
     {
         private SpriteRenderer cursorRenderer;
-        public static CursorManager instance;
+        // public static CursorManager instance;
         public Sprite defaultCursor;
         public Sprite scratchCursor;
         public float scratchRadius = 1;
 
         [Header("Scratch Card")]
         private bool isOverScratchCard = false;
+        private bool isUIShown = false;
         public Vector2 scratchCardCenter;
         public Vector2 scratchCardSize;
         
         private void Awake()
         {
-            instance = this;
+            // instance = this;
+        }
+
+        private void OnEnable()
+        {
+            GameManager.Instance.UIManager.onUIShown += LockCursor;
+            GameManager.Instance.UIManager.onUIHidden += UnlockCursor;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.Instance.UIManager.onUIShown -= LockCursor;
+            GameManager.Instance.UIManager.onUIHidden -= UnlockCursor;
         }
 
         void Start()
         {
             cursorRenderer = GetComponent<SpriteRenderer>();
+            isUIShown = false;
         }
 
         void Update()
@@ -34,7 +48,7 @@ using UnityEngine;
             cursorRenderer.transform.position = cursorPosition;
             isOverScratchCard = DetectHover();
 
-            if (isOverScratchCard)
+            if (isOverScratchCard && !isUIShown)
             {
                 if (Input.GetMouseButton(0)) ChangeCursor(scratchCursor);
                 if (Input.GetMouseButtonUp(0)) ResumeCursor();
@@ -44,7 +58,7 @@ using UnityEngine;
 
         private void FixedUpdate()
         {
-            if (Input.GetMouseButton(0)) DetectScratch();
+            if (Input.GetMouseButton(0) && isOverScratchCard && !isUIShown) DetectScratch();
         }
 
         private void DetectScratch()
@@ -83,6 +97,16 @@ using UnityEngine;
         public void ResumeCursor()
         {
             cursorRenderer.sprite = defaultCursor;
+        }
+
+        public void LockCursor()
+        {
+            isUIShown = true;
+        }
+
+        public void UnlockCursor()
+        {
+            isUIShown = false;
         }
 
         public void HideCursor()

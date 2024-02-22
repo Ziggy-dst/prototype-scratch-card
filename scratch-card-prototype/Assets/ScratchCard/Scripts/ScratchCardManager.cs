@@ -656,5 +656,27 @@ namespace ScratchCardAsset
 		}
 
 		#endregion
+
+		public void OnEnable()
+		{
+			GameManager.Instance.UIManager.onUIShown += LockInput;
+			GameManager.Instance.UIManager.onUIHidden += UnlockInput;
+		}
+
+		public void OnDisable()
+		{
+			GameManager.Instance.UIManager.onUIShown -= LockInput;
+			GameManager.Instance.UIManager.onUIHidden -= UnlockInput;
+		}
+
+		public void LockInput()
+		{
+			InputEnabled = false;
+		}
+
+		public void UnlockInput()
+		{
+			InputEnabled = true;
+		}
 	}
 }
