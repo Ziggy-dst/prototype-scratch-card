@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [Header("Static Value")]
     public List<int> scratchCardPrices;
     public Vector2 scratchCardSpawnPosition;
+    public int curseToRemoveEachBuy = 1;
 
     [Header("Default Value")]
     public int defaultCurseLevel = 0;
@@ -173,6 +174,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void RemoveCurse(int amount)
+    {
+        currentCurseLevel -= amount;
+        UIManager.ChangeGoldCountUI(currentCurseLevel);
+    }
+
     /// <summary>
     ///  triggered when buy card button is pressed
     /// </summary>
@@ -185,6 +192,7 @@ public class GameManager : MonoBehaviour
         }
         else return;
 
+        // if this is the last card
         if (numOfScratchCardBought == scratchCards.Count - 1)
             UIManager.ChangeBuyCardButtonStates(false);
 
@@ -194,6 +202,9 @@ public class GameManager : MonoBehaviour
         // cost
         CurrentGoldCount -= nextScratchCardPrice;
         UIManager.ChangeGoldCountUI(CurrentGoldCount);
+
+        // remove curse
+        RemoveCurse(curseToRemoveEachBuy);
 
         // check if the button should be greyed out (if have enough money to buy a new card)
         if (CurrentGoldCount < nextScratchCardPrice) UIManager.ChangeBuyCardButtonStates(false);
