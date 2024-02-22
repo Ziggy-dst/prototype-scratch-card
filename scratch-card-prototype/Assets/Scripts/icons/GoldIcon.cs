@@ -8,17 +8,6 @@ public class GoldIcon : IconBase
 {
     public int quantityOfGold = 1;
     
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-    
     protected override void PlayFeedbackAnimation()
     {
         GameObject feedback = Instantiate(feedbackPrefab, transform.position, Quaternion.identity);

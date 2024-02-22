@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     {
         InitializeGameValues();
         GenerateScratchCards(scratchCardSpawnPosition);
-        print(currentScratchCard);
+        // print(currentScratchCard);
 
         // initialize UI
         UIManager.InitializeUIElements(CurrentTreasureCount, CurrentGoldCount, currentCurseLevel);

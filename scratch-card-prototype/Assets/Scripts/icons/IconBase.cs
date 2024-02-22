@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
+using ScratchCardAsset.Animation;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class IconBase : MonoBehaviour
 {
+    private IconRevealManager iconRevealManager;
+
     [Header("Feedbacks")]
     public bool playFeedbacks = true;
     public GameObject feedbackPrefab;
@@ -18,23 +21,23 @@ public class IconBase : MonoBehaviour
     [HideInInspector] public bool isRevealed = false;
 
     protected SpriteRenderer spriteRenderer;
-    
+    private ScratchAnimator scratchAnimator;
+
     protected virtual void Start()
     {
         isRevealed = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-    
-    void Update()
-    {
-        
+        iconRevealManager = transform.parent.parent.GetComponent<IconRevealManager>();
+        scratchAnimator = GetComponent<ScratchAnimator>();
     }
 
     public void OnReveal()
     {
         if (isRevealed) return;
         
-        //TODO:automatic scratch animation
+        // automatic scratch animation
+        iconRevealManager.ConvertToScratchCardPosition(gameObject);
+        scratchAnimator.Play();
         
         if (playFeedbacks)
         {
