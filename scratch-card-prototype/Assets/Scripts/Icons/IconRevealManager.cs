@@ -77,7 +77,7 @@ public class IconRevealManager : MonoBehaviour
 
         // check index of the icon on the list
         int iconIndex = CheckAnimationIndex(icon);
-        // print(iconIndex);
+        print(iconIndex);
 
         scratchAnimation.Scratches[iconIndex].Position = convertedPosition;
     }

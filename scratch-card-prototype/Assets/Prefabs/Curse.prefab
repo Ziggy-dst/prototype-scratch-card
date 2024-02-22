@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 785078421285863520}
   - component: {fileID: 3357525087045230699}
   - component: {fileID: 4235911977051094585}
+  - component: {fileID: -5555060432737122197}
   m_Layer: 6
   m_Name: Curse
   m_TagString: Untagged
@@ -139,3 +140,18 @@ MonoBehaviour:
   fullScratchToReveal: 0
   isRevealed: 0
   quantityOfCurse: 1
+--- !u!114 &-5555060432737122197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6795659050534879988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610813ebc1938435f8a1a92270a183ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScratchCard: {fileID: 0}
+  ScratchAnimation: {fileID: 0}
+  PlayOnStart: 1
