@@ -5,6 +5,7 @@ using Managers;
 using ScratchCardAsset;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = System.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,7 +24,9 @@ public class GameManager : MonoBehaviour
     public float failProgressThreshold = 0.95f;
 
     [Header("Static Value")]
-    public List<int> scratchCardPrices;
+    // public List<int> scratchCardPrices;
+    public int baseCardPrice = 3;
+    public int cardPriceIncrement = 0;
     public Vector2 scratchCardSpawnPosition;
     public int curseToRemoveEachBuy = 1;
 
@@ -107,7 +110,8 @@ public class GameManager : MonoBehaviour
         CurrentTreasureCount = defaultTreasureCount;
 
         numOfScratchCardBought = 0;
-        nextScratchCardPrice = scratchCardPrices[numOfScratchCardBought];
+        nextScratchCardPrice = baseCardPrice;
+        // nextScratchCardPrice = scratchCardPrices[numOfScratchCardBought];
         currentScratchCardAsset = scratchCards[numOfScratchCardBought];
     }
 
@@ -128,8 +132,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// randomly generate new cards
+    /// </summary>
+    /// <param name="spawnPosition"></param>
     private void GenerateScratchCards(Vector2 spawnPosition)
     {
+        // randomly show new scratch card, destroy the old one
+        int randomCardIndex = UnityEngine.Random.Range(0, scratchCards.Count);
+        while (scratchCards.IndexOf(currentScratchCard) == randomCardIndex)
+        {
+            randomCardIndex = UnityEngine.Random.Range(0, scratchCards.Count);
+        }
+        Destroy(currentScratchCard);
+        currentScratchCardAsset = scratchCards[randomCardIndex];
+
         if (cardManager != null) cardManager.Progress.OnProgress -= CheckIfPlayerCouldWin;
         currentScratchCard = Instantiate(currentScratchCardAsset, spawnPosition, Quaternion.identity);
         cardManager = currentScratchCard.GetComponent<ScratchCardManager>();
@@ -203,16 +220,15 @@ public class GameManager : MonoBehaviour
         // check if the button should be greyed out (if have enough money to buy a new card)
         if (CurrentGoldCount < nextScratchCardPrice) UIManager.ChangeBuyCardButtonStates(false, nextScratchCardPrice);
 
-        // show new scratch card, destroy the old one
-        Destroy(currentScratchCard);
-        currentScratchCardAsset = scratchCards[numOfScratchCardBought];
+        // randomly generate new card
         GenerateScratchCards(scratchCardSpawnPosition);
 
         // check if the card runs out
         if (numOfScratchCardBought >= scratchCards.Count - 1) UIManager.ChangeBuyCardButtonStates(false, nextScratchCardPrice);
         else
         {
-            nextScratchCardPrice = scratchCardPrices[numOfScratchCardBought];
+            // nextScratchCardPrice = scratchCardPrices[numOfScratchCardBought];
+            nextScratchCardPrice += cardPriceIncrement;
         }
     }
 
