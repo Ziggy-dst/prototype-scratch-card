@@ -54,7 +54,11 @@ using UnityEngine;
                 if (Input.GetMouseButton(0)) ChangeCursor(scratchCursorList[GameManager.Instance.currentCurseLevel]);
                 else ChangeCursor(idleCursorList[GameManager.Instance.currentCurseLevel]);
             }
-            else ChangeCursor(idleCursorList[GameManager.Instance.currentCurseLevel]);
+            else
+            {
+                if (GameManager.Instance.currentCurseLevel > GameManager.Instance.maxCurseLevel) return;
+                ChangeCursor(idleCursorList[GameManager.Instance.currentCurseLevel]);
+            }
         }
 
         private void FixedUpdate()
