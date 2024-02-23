@@ -628,11 +628,18 @@ MonoBehaviour:
   UIManager: {fileID: 0}
   AudioManager: {fileID: 0}
   scratchCards:
+  - {fileID: 6457442494819985814, guid: e688d1a398d83d84ab79381160a8da23, type: 3}
   - {fileID: 6457442494819985814, guid: ba73d9f88b4c94fc2a9e44c05ac88fe0, type: 3}
+  - {fileID: 6457442494819985814, guid: ece4ef42d1c6e414ea6ad4da6ca2cf82, type: 3}
   - {fileID: 6457442494819985814, guid: 8cf0900eaffe04699afc0b7f09924776, type: 3}
   - {fileID: 6457442494819985814, guid: 8b2be342ad54d49298b5cfb858bc57b6, type: 3}
   - {fileID: 6457442494819985814, guid: 4e19f2ceac7f04d69afb4a73a5dc17c9, type: 3}
-  - {fileID: 6457442494819985814, guid: ece4ef42d1c6e414ea6ad4da6ca2cf82, type: 3}
+  - {fileID: 6457442494819985814, guid: 1d7da0980852c0c4080542bcf5679e33, type: 3}
+  - {fileID: 6457442494819985814, guid: 795f8c7fbe2c0be46bc04ec9ed73c4c5, type: 3}
+  - {fileID: 6457442494819985814, guid: d8e5292f8b986ce4982583bc6f48eec1, type: 3}
+  - {fileID: 6457442494819985814, guid: fa763ff9b6699f547a2688d7dbd752fe, type: 3}
+  - {fileID: 6457442494819985814, guid: 674bb694a1f46ab4a9d79dc04ec3c28c, type: 3}
+  - {fileID: 6457442494819985814, guid: e77cf41106bc9af4da629b61f3f9e2fc, type: 3}
   maxCurseLevel: 3
   failProgressThreshold: 0.9
   baseCardPrice: 2
