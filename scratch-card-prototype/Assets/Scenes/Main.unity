@@ -633,14 +633,14 @@ MonoBehaviour:
   - {fileID: 6457442494819985814, guid: 8b2be342ad54d49298b5cfb858bc57b6, type: 3}
   - {fileID: 6457442494819985814, guid: 4e19f2ceac7f04d69afb4a73a5dc17c9, type: 3}
   - {fileID: 6457442494819985814, guid: ece4ef42d1c6e414ea6ad4da6ca2cf82, type: 3}
-  maxCurseLevel: 5
+  maxCurseLevel: 3
   failProgressThreshold: 0.9
-  baseCardPrice: 3
+  baseCardPrice: 2
   cardPriceIncrement: 0
   scratchCardSpawnPosition: {x: 0, y: 0}
   curseToRemoveEachBuy: 1
   defaultCurseLevel: 0
-  defaultGoldCount: 0
+  defaultGoldCount: 3
   defaultTreasureCount: 0
   allGoldRevealed: 0
 --- !u!4 &446127886
