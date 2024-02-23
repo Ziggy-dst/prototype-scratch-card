@@ -4,13 +4,16 @@ using Managers;
 using ScratchCardAsset;
 using ScratchCardAsset.Animation;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Collider2D))]
 public class IconBase : MonoBehaviour
 {
     private ScratchCardManager cardManager;
+    public Action<IconBase> onIconReveal;
 
     [Header("Feedbacks")]
     public bool playFeedbacks = true;
@@ -56,11 +59,13 @@ public class IconBase : MonoBehaviour
             PlayFeedbackAnimation();
             if (feedbackSoundList.Count > 0)
             {
-                GameManager.Instance.AudioManager.PlaySound(feedbackSoundList[Random.Range(0, feedbackSoundList.Count)]);
+                GameManager.Instance.AudioManager.PlaySound(feedbackSoundList[UnityEngine.Random.Range(0, feedbackSoundList.Count)]);
             }
         }
         
         ApplyEffect();
+        
+        onIconReveal?.Invoke(this);
     }
 
     public Vector2 ConvertToScratchCardTexturePosition()
