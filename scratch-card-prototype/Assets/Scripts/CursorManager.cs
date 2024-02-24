@@ -11,6 +11,7 @@ using UnityEngine;
         public List<Sprite> idleCursorList;
         public List<Sprite> scratchCursorList;
         public float scratchRadius = 1;
+        public float fullScratchRevealDistance = 0.2f;
 
         [Header("Scratch Card")]
         private bool isOverScratchCard = false;
@@ -74,7 +75,7 @@ using UnityEngine;
                 IconBase iconScript = iconCollider.GetComponent<IconBase>();
                 if (iconScript.fullScratchToReveal)
                 {
-                    if((iconCollider.transform.position - transform.position).magnitude <= 0.15f) iconScript.OnReveal();
+                    if((iconCollider.transform.position - transform.position).magnitude <= fullScratchRevealDistance) iconScript.OnReveal();
                     // print((iconCollider.transform.position - transform.position).magnitude);
                 }   
                 else iconScript.OnReveal();
