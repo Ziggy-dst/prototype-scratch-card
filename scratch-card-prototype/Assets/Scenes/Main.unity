@@ -156,6 +156,11 @@ MonoBehaviour:
   AudioManager: {fileID: 0}
   scratchCards:
   - {fileID: 6457442494819985814, guid: ae29123a668d844599d8bdd651cfb1e2, type: 3}
+  - {fileID: 6457442494819985814, guid: 246b84dd66a32304fbd6d90c23a9a0b3, type: 3}
+  - {fileID: 6457442494819985814, guid: 5c5b00f27425eb2419a84bf5341e799a, type: 3}
+  - {fileID: 6457442494819985814, guid: 5a1558994fe0b0e4c95293e5f19e9c5c, type: 3}
+  - {fileID: 6457442494819985814, guid: f4f3000dafe48c547b2cf9908709348e, type: 3}
+  - {fileID: 6457442494819985814, guid: e31bd4b9fcd629241b57aff737d22a06, type: 3}
   maxCurseLevel: 3
   failProgressThreshold: 0.9
   baseCardPrice: 3
