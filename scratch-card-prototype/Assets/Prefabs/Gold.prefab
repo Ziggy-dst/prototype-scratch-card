@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: bd6d1bcf85d657c4ab8621b6f2bca54c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -141,6 +141,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 325b2037a61b9467cb72b0434cc86673, type: 3}
   isAutoRevealed: 1
   autoRevealPressure: 3
-  fullScratchToReveal: 0
+  fullScratchToReveal: 1
   isRevealed: 0
   quantityOfGold: 1

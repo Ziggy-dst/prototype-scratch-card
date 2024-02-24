@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
         treasureText.text = $"Treasure Count: {treasureCount}";
         goldText.text = $"Gold Count: {goldCount}";
         curseText.text = $"Curse Count: {curseCount}";
-        buttonText.text = $"Next Card: <color=yellow>{nextCardPrice}</color>";
+        buttonText.text = $"Next Card: <color=orange>{nextCardPrice}</color>";
 
         buyCardButton.interactable = true;
 
@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
 
     public void ChangeBuyCardButtonStates(bool ifInteractable, int newPrice)
     {
-        buttonText.text = $"Next Card: <color=yellow>{newPrice}</color>";
+        buttonText.text = $"Next Card: <color=orange>{newPrice}</color>";
         buyCardButton.interactable = ifInteractable;
     }
 

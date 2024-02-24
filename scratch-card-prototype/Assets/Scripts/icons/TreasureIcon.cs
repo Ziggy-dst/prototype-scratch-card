@@ -32,6 +32,6 @@ public class TreasureIcon : IconBase
     {
         GameManager.Instance.OnTreasureObtained(quantityOfTreasure);
         GameManager.Instance.RemoveCurse(GetComponentInParent<IconManager>().revealedCurse);
-        GameManager.Instance.OnGoldObtained(-GetComponentInParent<IconManager>().revealedCurse);
+        GameManager.Instance.OnGoldObtained(GetComponentInParent<IconManager>().revealedCurse);
     }
 }

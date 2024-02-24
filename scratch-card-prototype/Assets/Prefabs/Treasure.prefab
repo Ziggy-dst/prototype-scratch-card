@@ -140,6 +140,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 563fb81fbb3494f9888fc104626574e8, type: 3}
   isAutoRevealed: 1
   autoRevealPressure: 3
-  fullScratchToReveal: 0
+  fullScratchToReveal: 1
   isRevealed: 0
   quantityOfTreasure: 1
+  numberOfCurseRevealedOnCurrentCard: 0
