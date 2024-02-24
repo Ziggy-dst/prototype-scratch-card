@@ -49,6 +49,7 @@ using UnityEngine;
             cursorRenderer.transform.position = cursorPosition;
             isOverScratchCard = DetectHover();
 
+            if (GameManager.Instance.currentCurseLevel > GameManager.Instance.maxCurseLevel) return;
             if (isOverScratchCard && !isUIShown)
             {
                 if (Input.GetMouseButton(0)) ChangeCursor(scratchCursorList[GameManager.Instance.currentCurseLevel]);
@@ -56,7 +57,6 @@ using UnityEngine;
             }
             else
             {
-                if (GameManager.Instance.currentCurseLevel > GameManager.Instance.maxCurseLevel) return;
                 ChangeCursor(idleCursorList[GameManager.Instance.currentCurseLevel]);
             }
         }
