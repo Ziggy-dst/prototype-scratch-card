@@ -54,6 +54,8 @@ using UnityEngine;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
             
+            isOverScratchCard = DetectHover();
+            
             cardSprite = GameManager.Instance.currentScratchCard.transform.Find("Scratch Surface Sprite").GetComponent<SpriteRenderer>();
 
             if (GameManager.Instance.currentCurseLevel > GameManager.Instance.maxCurseLevel) return;
@@ -66,17 +68,17 @@ using UnityEngine;
             {
                 ChangeCursor(idleCursorList[GameManager.Instance.currentCurseLevel]);
             }
-        }
-
-        private void FixedUpdate()
-        {
-            isOverScratchCard = DetectHover();
+            
+            //Physics related
             Vector2 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             
             cursorRenderer.transform.position = cursorPosition;
 
             if (Input.GetMouseButtonDown(0) && isOverScratchCard && !isUIShown)
+            {
+                print("Button Down");
                 initialScratchPos = cursorRenderer.transform.position;
+            }
             
             if (Input.GetMouseButton(0) && isOverScratchCard && !isUIShown)
             {
@@ -94,6 +96,11 @@ using UnityEngine;
             {
                 isInDeadzone = true;
             }
+        }
+
+        private void FixedUpdate()
+        {
+            
         }
 
         private void DetectScratch()
