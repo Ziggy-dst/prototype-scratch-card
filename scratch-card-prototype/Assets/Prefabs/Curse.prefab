@@ -140,6 +140,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cc9a63eac908a3544a61e2a840aa3e40, type: 3}
   isAutoRevealed: 1
   autoRevealPressure: 3
-  fullScratchToReveal: 0
+  fullScratchToReveal: 1
   isRevealed: 0
   quantityOfCurse: 1

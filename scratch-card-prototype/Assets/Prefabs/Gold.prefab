@@ -141,6 +141,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 325b2037a61b9467cb72b0434cc86673, type: 3}
   isAutoRevealed: 1
   autoRevealPressure: 3
-  fullScratchToReveal: 0
+  fullScratchToReveal: 1
   isRevealed: 0
   quantityOfGold: 1
