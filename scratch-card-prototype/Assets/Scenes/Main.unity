@@ -795,6 +795,7 @@ MonoBehaviour:
   defaultGoldCount: 3
   defaultTreasureCount: 0
   allGoldRevealed: 0
+  currentScratchCard: {fileID: 0}
 --- !u!4 &446127886
 Transform:
   m_ObjectHideFlags: 0
@@ -1046,9 +1047,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5bb4e81ab2e1cee418b72e2d808098ed, type: 3}
   - {fileID: 0}
   scratchRadius: 0.2
+  initialScratchDeadzone: 0.05
   fullScratchRevealDistance: 0.2
   scratchCardCenter: {x: 0, y: 0}
   scratchCardSize: {x: 8.24, y: 10.36}
+  revealPressure: 1
 --- !u!4 &714478560
 Transform:
   m_ObjectHideFlags: 0

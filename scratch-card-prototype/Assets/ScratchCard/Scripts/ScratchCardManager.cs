@@ -319,6 +319,10 @@ namespace ScratchCardAsset
 			{
 				mainCamera = mainCamera != null ? mainCamera : Camera.main;
 			}
+			
+			//Blaer
+			Card.enabled = inputEnabled;
+			//Blaer
 
 			InitSurfaceMaterial();
 			InitBrushMaterial();
@@ -657,26 +661,26 @@ namespace ScratchCardAsset
 
 		#endregion
 
-		public void OnEnable()
-		{
-			GameManager.Instance.UIManager.onUIShown += LockInput;
-			GameManager.Instance.UIManager.onUIHidden += UnlockInput;
-		}
-
-		public void OnDisable()
-		{
-			GameManager.Instance.UIManager.onUIShown -= LockInput;
-			GameManager.Instance.UIManager.onUIHidden -= UnlockInput;
-		}
-
-		public void LockInput()
-		{
-			InputEnabled = false;
-		}
-
-		public void UnlockInput()
-		{
-			InputEnabled = true;
-		}
+		// public void OnEnable()
+		// {
+		// 	GameManager.Instance.UIManager.onUIShown += LockInput;
+		// 	GameManager.Instance.UIManager.onUIHidden += UnlockInput;
+		// }
+		//
+		// public void OnDisable()
+		// {
+		// 	GameManager.Instance.UIManager.onUIShown -= LockInput;
+		// 	GameManager.Instance.UIManager.onUIHidden -= UnlockInput;
+		// }
+		//
+		// public void LockInput()
+		// {
+		// 	InputEnabled = false;
+		// }
+		//
+		// public void UnlockInput()
+		// {
+		// 	InputEnabled = true;
+		// }
 	}
 }

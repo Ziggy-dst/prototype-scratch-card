@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     private int numOfScratchCardBought = 0;
     private int nextScratchCardPrice;
     private GameObject currentScratchCardAsset;
-    private GameObject currentScratchCard;
+    [HideInInspector]public GameObject currentScratchCard;
 
     private void Awake()
     {

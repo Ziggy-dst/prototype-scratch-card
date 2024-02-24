@@ -540,7 +540,7 @@ MonoBehaviour:
   brushTexture: {fileID: 2800000, guid: 6407cb4b2bd9f4a82b1e98830cae7837, type: 3}
   brushSize: 1.25
   brushOpacity: 1
-  inputEnabled: 1
+  inputEnabled: 0
   usePressure: 0
   checkCanvasRaycasts: 1
   canvasesForRaycastsBlocking: []

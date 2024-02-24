@@ -1,16 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ScratchCardAsset;
 using Unity.VisualScripting;
 using UnityEngine;
 
     public class CursorManager : MonoBehaviour
     {
         private SpriteRenderer cursorRenderer;
+        private bool isInDeadzone = true;
+        private Vector3 initialScratchPos;
+        private SpriteRenderer cardSprite;
+        
         // public static CursorManager instance;
         public List<Sprite> idleCursorList;
         public List<Sprite> scratchCursorList;
         public float scratchRadius = 1;
+        public float initialScratchDeadzone = 0.5f;
         public float fullScratchRevealDistance = 0.2f;
 
         [Header("Scratch Card")]
@@ -18,6 +24,7 @@ using UnityEngine;
         private bool isUIShown = false;
         public Vector2 scratchCardCenter;
         public Vector2 scratchCardSize;
+        public float revealPressure = 1;
         
         private void Awake()
         {
@@ -46,9 +53,8 @@ using UnityEngine;
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
-            Vector2 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            cursorRenderer.transform.position = cursorPosition;
-            isOverScratchCard = DetectHover();
+            
+            cardSprite = GameManager.Instance.currentScratchCard.transform.Find("Scratch Surface Sprite").GetComponent<SpriteRenderer>();
 
             if (GameManager.Instance.currentCurseLevel > GameManager.Instance.maxCurseLevel) return;
             if (isOverScratchCard && !isUIShown)
@@ -64,7 +70,30 @@ using UnityEngine;
 
         private void FixedUpdate()
         {
-            if (Input.GetMouseButton(0) && isOverScratchCard && !isUIShown) DetectScratch();
+            isOverScratchCard = DetectHover();
+            Vector2 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
+            cursorRenderer.transform.position = cursorPosition;
+
+            if (Input.GetMouseButtonDown(0) && isOverScratchCard && !isUIShown)
+                initialScratchPos = cursorRenderer.transform.position;
+            
+            if (Input.GetMouseButton(0) && isOverScratchCard && !isUIShown)
+            {
+                cursorRenderer.transform.position = new Vector3(initialScratchPos.x, cursorPosition.y);
+                if (Input.GetAxis("Mouse Y") >= 0) return;
+                if ((cursorRenderer.transform.position - initialScratchPos).magnitude >= initialScratchDeadzone) isInDeadzone = false;
+                if (!isInDeadzone)
+                {
+                    GameManager.Instance.currentScratchCard.GetComponent<ScratchCardManager>().Card.ScratchHole(ConvertToScratchCardTexturePosition(), revealPressure);
+                    DetectScratch();
+                }
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                isInDeadzone = true;
+            }
         }
 
         private void DetectScratch()
@@ -87,6 +116,20 @@ using UnityEngine;
             if (Mathf.Abs(transform.position.x - scratchCardCenter.x) <= scratchCardSize.x / 2 &&
                 Mathf.Abs(transform.position.y - scratchCardCenter.y) <= scratchCardSize.y / 2) return true;
             else return false;
+        }
+        
+        public Vector2 ConvertToScratchCardTexturePosition()
+        {
+            Vector3 scratchCardOrigin = new Vector2(cardSprite.transform.position.x - cardSprite.sprite.bounds.size.x / 2,
+                cardSprite.transform.position.y - cardSprite.sprite.bounds.size.y / 2);
+            Vector2 relativePos = cursorRenderer.transform.position - scratchCardOrigin;
+            Vector2 uvPosition = new Vector2(relativePos.x / cardSprite.sprite.bounds.size.x, relativePos.y / cardSprite.sprite.bounds.size.y);
+
+            Vector2 convertedPosition = new Vector2(Mathf.FloorToInt(uvPosition.x * cardSprite.sprite.texture.width),
+                Mathf.FloorToInt(uvPosition.y * cardSprite.sprite.texture.height));
+            // print(convertedPosition);
+
+            return convertedPosition;
         }
 
         private void OnDrawGizmosSelected()
