@@ -7,6 +7,7 @@ using UnityEngine;
 public class TreasureIcon : IconBase
 {
     public int quantityOfTreasure = 1;
+    [SerializeField] private int numberOfCurseRevealedOnCurrentCard = 0;
     
     protected override void PlayFeedbackAnimation()
     {
@@ -14,7 +15,9 @@ public class TreasureIcon : IconBase
         TextMeshPro feedbackText = feedback.GetComponentInChildren<TextMeshPro>();
         Sequence feedbackSequence = DOTween.Sequence();
         
-        feedbackText.text = "+ " + quantityOfTreasure + " Treasure";
+        feedbackText.text = "+ " + quantityOfTreasure + " Treasure"
+                            + "\n" + "<color=green>- " + GetComponentInParent<IconManager>().revealedCurse + " Curse</color>"
+                            + "\n" + "<color=yellow>+ " + GetComponentInParent<IconManager>().revealedCurse + " Gold</color>";
         
         feedbackSequence
             .Append(feedbackText.transform.DOScale(Vector3.zero, 0))
@@ -28,5 +31,7 @@ public class TreasureIcon : IconBase
     protected override void ApplyEffect()
     {
         GameManager.Instance.OnTreasureObtained(quantityOfTreasure);
+        GameManager.Instance.RemoveCurse(GetComponentInParent<IconManager>().revealedCurse);
+        GameManager.Instance.OnGoldObtained(-GetComponentInParent<IconManager>().revealedCurse);
     }
 }

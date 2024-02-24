@@ -194,7 +194,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void RemoveCurse(int amount)
+    public void RemoveCurse(int amount)
     {
         currentCurseLevel -= amount;
         UIManager.ChangeCurseLevelUI(currentCurseLevel);
