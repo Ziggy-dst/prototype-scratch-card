@@ -194,6 +194,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void BuyRemoveCurse(int price)
+    {
+        if (CurrentGoldCount > price)
+        {
+            CurrentGoldCount -= price;
+            UIManager.ChangeGoldCountUI(CurrentGoldCount);
+            RemoveCurse(1);
+        }
+    }
+
     public void RemoveCurse(int amount)
     {
         currentCurseLevel -= amount;
