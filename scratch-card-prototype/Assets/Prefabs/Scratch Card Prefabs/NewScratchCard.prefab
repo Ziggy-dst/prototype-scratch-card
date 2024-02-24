@@ -492,8 +492,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconPrefabs:
   - icon: {fileID: 5859166274144228573, guid: 62688752d975d444d83f8a9e7cb9c55c, type: 3}
-    minCount: 3
-    maxCount: 5
+    minCount: 1
+    maxCount: 3
   - icon: {fileID: 6795659050534879988, guid: db00b844b1cdab64286f1043aadf37c8, type: 3}
     minCount: 1
     maxCount: 3
@@ -602,11 +602,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 721582462467166525, guid: 96e930f50f5a7e84687515df482da727, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 721582462467166525, guid: 96e930f50f5a7e84687515df482da727, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.94
+      value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 721582462467166525, guid: 96e930f50f5a7e84687515df482da727, type: 3}
       propertyPath: m_LocalPosition.z
