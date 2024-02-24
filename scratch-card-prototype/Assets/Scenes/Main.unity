@@ -642,7 +642,7 @@ MonoBehaviour:
   - {fileID: 6457442494819985814, guid: e77cf41106bc9af4da629b61f3f9e2fc, type: 3}
   maxCurseLevel: 3
   failProgressThreshold: 0.9
-  baseCardPrice: 2
+  baseCardPrice: 3
   cardPriceIncrement: 0
   scratchCardSpawnPosition: {x: 0, y: 0}
   curseToRemoveEachBuy: 1
