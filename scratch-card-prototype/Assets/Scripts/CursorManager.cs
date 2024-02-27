@@ -19,7 +19,15 @@ using UnityEngine;
         public float initialScratchDeadzone = 0.5f;
         public float fullScratchRevealDistance = 0.2f;
 
+        
+        public enum ScratchType
+        {
+            Free,
+            Vertical
+        }
+        
         [Header("Scratch Card")]
+        public ScratchType scratchType = ScratchType.Free;
         private bool isOverScratchCard = false;
         private bool isUIShown = false;
         public Vector2 scratchCardCenter;
@@ -74,27 +82,52 @@ using UnityEngine;
             
             cursorRenderer.transform.position = cursorPosition;
 
-            if (Input.GetMouseButtonDown(0) && isOverScratchCard && !isUIShown)
+            switch (scratchType)
             {
-                print("Button Down");
-                initialScratchPos = cursorRenderer.transform.position;
-            }
+                case ScratchType.Free:
+                    // GameManager.Instance.currentScratchCard.GetComponent<ScratchCardManager>().InputEnabled = true;
+                    
+                    if (Input.GetMouseButtonDown(0) && isOverScratchCard && !isUIShown)
+                    {
+                        initialScratchPos = cursorRenderer.transform.position;
+                    }
+                    
+                    if (Input.GetMouseButton(0) && isOverScratchCard && !isUIShown)
+                    {
+                        if (Input.GetAxis("Mouse Y") >= 0) return;
+                        if ((cursorRenderer.transform.position - initialScratchPos).magnitude >= initialScratchDeadzone) isInDeadzone = false;
+                        if (!isInDeadzone)
+                        {
+                            GameManager.Instance.currentScratchCard.GetComponent<ScratchCardManager>().Card.ScratchHole(ConvertToScratchCardTexturePosition(), revealPressure);
+                            DetectScratch();
+                        }
+                    }
+                    break;
+                case ScratchType.Vertical:
+                    // GameManager.Instance.currentScratchCard.GetComponent<ScratchCardManager>().InputEnabled = false;
+                    
+                    if (Input.GetMouseButtonDown(0) && isOverScratchCard && !isUIShown)
+                    {
+                        initialScratchPos = cursorRenderer.transform.position;
+                    }
             
-            if (Input.GetMouseButton(0) && isOverScratchCard && !isUIShown)
-            {
-                cursorRenderer.transform.position = new Vector3(initialScratchPos.x, cursorPosition.y);
-                if (Input.GetAxis("Mouse Y") >= 0) return;
-                if ((cursorRenderer.transform.position - initialScratchPos).magnitude >= initialScratchDeadzone) isInDeadzone = false;
-                if (!isInDeadzone)
-                {
-                    GameManager.Instance.currentScratchCard.GetComponent<ScratchCardManager>().Card.ScratchHole(ConvertToScratchCardTexturePosition(), revealPressure);
-                    DetectScratch();
-                }
-            }
+                    if (Input.GetMouseButton(0) && isOverScratchCard && !isUIShown)
+                    {
+                        cursorRenderer.transform.position = new Vector3(initialScratchPos.x, cursorPosition.y);
+                        if (Input.GetAxis("Mouse Y") >= 0) return;
+                        if ((cursorRenderer.transform.position - initialScratchPos).magnitude >= initialScratchDeadzone) isInDeadzone = false;
+                        if (!isInDeadzone)
+                        {
+                            GameManager.Instance.currentScratchCard.GetComponent<ScratchCardManager>().Card.ScratchHole(ConvertToScratchCardTexturePosition(), revealPressure);
+                            DetectScratch();
+                        }
+                    }
 
-            if (Input.GetMouseButtonUp(0))
-            {
-                isInDeadzone = true;
+                    if (Input.GetMouseButtonUp(0))
+                    {
+                        isInDeadzone = true;
+                    }
+                    break;
             }
         }
 

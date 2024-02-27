@@ -2375,6 +2375,7 @@ MonoBehaviour:
   scratchRadius: 0.2
   initialScratchDeadzone: 0.05
   fullScratchRevealDistance: 0.2
+  scratchType: 1
   scratchCardCenter: {x: 0, y: 0}
   scratchCardSize: {x: 8.24, y: 10.36}
   revealPressure: 1
